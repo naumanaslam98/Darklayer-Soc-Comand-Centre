@@ -1,0 +1,17 @@
+services:
+  soc:
+    build: .
+    container_name: darklayer-soc
+    ports:
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:5514:5514/udp"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: "sqlite:///./data/soc.db"
+      ENABLE_SYSLOG: "true"
+      SYSLOG_HOST: "0.0.0.0"
+      SYSLOG_PORT: "5514"
+    volumes:
+      - ./data:/soc/data
+    restart: unless-stopped

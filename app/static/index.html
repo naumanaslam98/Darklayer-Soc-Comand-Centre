@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DarkLayer SOC Center</title>
+  <link rel="stylesheet" href="/static/style.css?v=1.2.0" />
+</head>
+<body>
+<div id="login" class="login-shell">
+  <div class="login-card">
+    <div class="brand-mark">DL</div>
+    <h1>DarkLayer SOC Center</h1>
+    <p>Local Security Operations Console</p>
+    <label>Username<input id="loginUser" value="admin" autocomplete="username"></label>
+    <label>Password<input id="loginPass" type="password" placeholder="Enter SOC password" autocomplete="current-password"></label>
+    <button id="loginBtn" class="primary">Sign in</button>
+    <div id="loginMsg" class="muted"></div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside>
+    <div class="brand"><div class="brand-mark sm">DL</div><div><b>DARKLAYER</b><span>SOC CENTER</span></div></div>
+    <nav id="nav">
+      <button data-view="overview" class="active">◈ Overview</button>
+      <button data-view="live">▰ Live Events</button>
+      <button data-view="alerts">⚠ Alerts <em id="navAlertCount">0</em></button>
+      <button data-view="incidents">◆ Incidents</button>
+      <button data-view="hunt">⌕ Threat Hunting</button>
+      <button data-view="ingest">⇣ Ingestion</button>
+      <button data-view="intel">◎ Intelligence</button>
+      <button data-view="assets">▤ Assets</button>
+      <button data-view="identity">♙ Identity</button>
+      <button data-view="network">⌁ Network</button>
+      <button data-view="detections">◇ Detections</button>
+      <button data-view="cases">▣ Cases</button>
+      <button data-view="team">◉ SOC Team</button>
+    </nav>
+    <div class="system-box"><b>System Health</b><span class="ok">● Operational</span><small>API + detection engine + local DB</small><small>Syslog UDP :5514</small></div>
+  </aside>
+  <main>
+    <header>
+      <div><h1 id="pageTitle">SOC Command Center</h1><p id="pageSub">Real-time overview of local security operations</p></div>
+      <div class="header-actions"><input id="globalSearch" placeholder="Search alerts, assets, users…"><button id="demoBtn">Generate telemetry</button><button id="logoutBtn">Logout</button></div>
+    </header>
+    <section id="content"></section>
+  </main>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/app.js?v=1.2.0"></script>
+</body>
+</html>
